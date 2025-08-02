@@ -2,15 +2,21 @@ package inheritance_polymorphism;
 
 public class Vehicle {
     String vehicleName ;
-    int mileage;
+    boolean hasGas;
 
-    public Vehicle(String n, int mileage) {
+    public Vehicle(String n, boolean hasGas) {
         this.vehicleName = n ;
-        this.mileage = mileage ;
+        this.hasGas = hasGas ;
     }
 
+    public boolean getHasGas(){return this.hasGas;}
+
     public void start(){
-        this.mileage+=1;
-        System.out.printf("Vehicle %s has run for %d km",this.vehicleName,this.mileage);
+        if(getHasGas()){
+            System.out.printf("Vehicle %s started\n",this.vehicleName);
+        }else{
+            System.out.printf("Vehicle %s cannot be started due to gas shortage\n",this.vehicleName);
+        };
+
     }
 }
